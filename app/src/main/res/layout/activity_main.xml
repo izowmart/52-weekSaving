@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_margin="6dp">
+
+        <EditText
+            android:id="@+id/start_amount"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:hint="Start Amount"
+            android:layout_margin="6dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/total_saved"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:text="KES 65265"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="6dp">
+        <Button
+            android:id="@+id/btn_calculate"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Calculate"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btn_del_start_amount"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Delete Start Amount"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp"
+        tools:listitem="@layout/single_item_card">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

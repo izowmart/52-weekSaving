@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_currency"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_margin="8dp"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="#C0C0C0"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="false">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Week #"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black"/>
+            <TextView
+                android:id="@+id/week_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1"
+                android:layout_gravity="center"
+                android:textSize="15dp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deposit"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black"/>
+            <TextView
+                android:id="@+id/deposit_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="KES 50"
+                android:text=""
+                android:layout_marginTop="8dp"
+                android:textSize="15dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black"/>
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="KES 50"
+                android:textSize="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
