@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 
 import com.example.a52weeksaving.adapter.CardsAdapter;
 import com.example.a52weeksaving.models.AccountDetails;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText startAmount;
     private TextView totalSaved;
     private Button calculate, deleteStartAmount;
-    private String  enteredAmount;
+    private Integer enteredAmount;
 
-    private List<AccountDetails> accountDetailsList;
-    private List<AccountDetails> updateList;
     private RecyclerView recyclerView;
     CardsAdapter cardsAdapter;
 
@@ -48,14 +49,18 @@ public class MainActivity extends AppCompatActivity {
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validUserData()){
-                    mSharedPreferences = getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE);
-                    mEditor = mSharedPreferences.edit();
-                    mEditor.putString(STARTAMOUNT,enteredAmount);
-                    mEditor.apply();
-                    finish();
+                validUserData();
 
-                }
+                mSharedPreferences = getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE);
+                mEditor = mSharedPreferences.edit();
+                mEditor.putInt(STARTAMOUNT,enteredAmount);
+                mEditor.apply();
+                finish();
+
+//                  these data is then populated to the recyclerviews in realtime from the shared preference.
+                extractData();
+
+
             }
         });
 //        delete the start amount here from the shared preference
@@ -71,27 +76,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
 //        recyclerView
-        accountDetailsList = new ArrayList<>();
         recyclerView = findViewById(R.id.recycler_view);
-//        populate the ArrayList with data from shared preference here
-//        todo put dataList from shared preference here to store them
-        updateList = new ArrayList<>();
-
-
-        accountDetailsList.add(new AccountDetails(null,null));
-//        todo
-        cardsAdapter = new CardsAdapter(getApplicationContext(), accountDetailsList);
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+        cardsAdapter = new CardsAdapter(getApplicationContext());
         recyclerView.setAdapter(cardsAdapter);
 
     }
 
-    private boolean validUserData() {
-        enteredAmount = startAmount.getText().toString().trim();
-        return !(enteredAmount.isEmpty());
+    private void extractData() {
+        mSharedPreferences = getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE);
+        Integer start_amount = mSharedPreferences.getInt(STARTAMOUNT,0);
+        cardsAdapter.updateUI(start_amount);
+        cardsAdapter.notifyDataSetChanged();
+    }
+
+    private void validUserData() {
+        enteredAmount = Integer.valueOf(startAmount.getText().toString().trim());
+        if (enteredAmount == null){
+            startAmount.setError("Please enter a start amount");
+        }
+
     }
 
 }
