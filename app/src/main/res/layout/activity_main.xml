@@ -14,12 +14,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:layout_margin="6dp">
+        android:layout_margin="4dp">
 
         <EditText
             android:id="@+id/start_amount"
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="wrap_content"
             android:hint="Start Amount"
             android:inputType="number"
             android:layout_margin="6dp"
@@ -27,9 +27,10 @@
         <TextView
             android:id="@+id/total_saved"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             tools:text="KES 65265"
+            android:hint="Total Saved"
             android:textSize="20sp"
             android:textColor="@android:color/black"
             android:gravity="center"/>
@@ -38,8 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_marginTop="6dp">
+        android:weightSum="2">
         <Button
             android:id="@+id/btn_calculate"
             android:layout_width="match_parent"
@@ -57,7 +57,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="2dp"
         tools:listitem="@layout/single_item_card">
 
     </android.support.v7.widget.RecyclerView>

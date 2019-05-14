@@ -48,10 +48,10 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         }else {
-                            Toast.makeText(getApplicationContext(),"Unable to Login Plz Register !!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Unable to Login kindly Register!!",Toast.LENGTH_SHORT).show();
                         }
                     }else {
-                        Toast.makeText(getApplicationContext(),"Unable to Login Plz Enter Valid Data !!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Unable to Login Please Enter Valid Data !!",Toast.LENGTH_SHORT).show();
                     }
                 }
             });

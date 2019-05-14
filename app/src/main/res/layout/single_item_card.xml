@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView android:layout_width="match_parent"
+    android:layout_height="90dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_currency"
-    android:layout_width="match_parent"
-    android:layout_height="90dp"
     android:layout_margin="8dp"
-    android:foreground="?selectableItemBackground"
     app:cardBackgroundColor="#C0C0C0"
     app:cardCornerRadius="4dp"
     app:cardElevation="2dp"
-    app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="false">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <LinearLayout
@@ -63,7 +58,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="KES 50"
-                android:text=""
                 android:layout_marginTop="8dp"
                 android:textSize="15dp"
                 android:layout_gravity="center"/>

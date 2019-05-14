@@ -3,24 +3,25 @@ package com.example.a52weeksaving.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.a52weeksaving.R;
+import com.example.a52weeksaving.models.Account;
 
-import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardHolder> {
 
     private Context context;
-    private Integer startAmount;
+    private List<Account> data;
 
     public CardsAdapter(Context context) {
         this.context = context;
-        this.startAmount = 0;
+        this.data = new ArrayList<>();
     }
 
     @NonNull
@@ -32,29 +33,24 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull CardsAdapter.CardHolder cardHolder, int i) {
-        Integer amountToSave = 0;
-        Integer totalSaved = 0;
+        Account account_data = data.get(i);
 
-        for (int week = 1; week < 53; week++){
-            amountToSave += startAmount;
-            totalSaved += amountToSave;
+        cardHolder.weekNumber.setText(account_data.getWeek());
+        cardHolder.deposit.setText(account_data.getAmount_to_save());
+        cardHolder.total.setText(account_data.getTotal_saved());
 
-            cardHolder.weekNumber.setText(MessageFormat.format("Week: {0}", week));
-            cardHolder.deposit.setText(MessageFormat.format("KES {0}", amountToSave));
-            cardHolder.total.setText(MessageFormat.format("KES {0}", totalSaved));
-        }
 
+    }
+    public void UpdateUI(List<Account> items) {
+        this.data = items;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return startAmount;
+        return data.size();
     }
 
-    public void updateUI(Integer start_amount) {
-        Log.d("message as at adapter", String.valueOf(start_amount));
-        this.startAmount = start_amount;
-    }
 
     public class CardHolder extends RecyclerView.ViewHolder {
         private TextView weekNumber;
